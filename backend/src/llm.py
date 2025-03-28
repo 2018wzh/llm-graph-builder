@@ -63,12 +63,12 @@ def get_llm(model: str):
             model_name, api_key = env_value.split(",")
             if "ecnu-reasoner" or "ecnu-reasoner-lite" in model:
                 llm= ChatOpenAI(
-                base_url="https://chat.ecnu.edu.cn/open/api/v1/chat/completions",
+                base_url="https://chat.ecnu.edu.cn/open/api/v1",
                 api_key=api_key,
                 model=model_name)
             else:
                 llm = ChatOpenAI(
-                base_url="https://chat.ecnu.edu.cn/open/api/v1/chat/completions",
+                base_url="https://chat.ecnu.edu.cn/open/api/v1",
                 api_key=api_key,
                 model=model_name,
                 temperature=0,
