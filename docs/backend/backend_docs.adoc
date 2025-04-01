@@ -281,7 +281,7 @@ allowedNodes=Node labels passed from settings panel,
      
 === Get list of sources
 ----
-GET /sources_list
+POST /sources_list
 ----
 
 List all sources (Document nodes) present in Neo4j graph database.
