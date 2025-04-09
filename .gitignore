@@ -174,3 +174,6 @@ newenv
 files
 
 .vscode/*
+
+**/*.bat
+**/*.sh
