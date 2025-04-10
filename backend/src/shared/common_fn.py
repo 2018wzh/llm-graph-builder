@@ -82,6 +82,11 @@ def load_embedding_model(embedding_model_name: str):
         embeddings = get_bedrock_embeddings()
         dimension = 1536
         logging.info(f"Embedding: Using bedrock titan Embeddings , Dimension:{dimension}")
+    if embedding_model_name == "ecnu":
+        ecnu_api_key=os.environ.get("ECNU_API_KEY")
+        embeddings = OpenAIEmbeddings(base_url="https://chat.ecnu.edu.cn/open/api/v1",model="ecnu-embedding-small",api_key=ecnu_api_key,deployment="ecnu-embedding-small")
+        dimension = 1024
+        logging.info(f"Embedding: Using ECNU Embeddings , Dimension:{dimension}")
     else:
         embeddings = HuggingFaceEmbeddings(
             model_name="all-MiniLM-L6-v2"#, cache_folder="/embedding_model"
