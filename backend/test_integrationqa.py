@@ -178,7 +178,7 @@ def run_tests():
    chatbot_list = []
    chatbot_error_list = []
    other_api_list = []
-   models = ['openai_gpt_4','openai_gpt_4o','openai_gpt_4o_mini','gemini_1.5_pro','gemini_1.5_flash','gemini_2.0_flash','bedrock_nova_micro_v1','bedrock_nova_lite_v1','bedrock_nova_pro_v1','fireworks_qwen72b_instruct']
+   models = ['ecnu_ecnu-plus','ecnu_ecnu-reasoner','ecnu_ecnu-reasoner-lite']
    chatbot_modes = [
        "vector",
        "graph+vector",

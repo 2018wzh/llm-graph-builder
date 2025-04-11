@@ -202,7 +202,7 @@ def test_populate_graph_schema_from_text(model):
 def run_tests():
    final_list = []
    error_list = []
-   models = ['openai-gpt-3.5','openai-gpt-4o','openai-gpt-4o-mini','gemini-1.5-pro','azure_ai_gpt_35','azure_ai_gpt_4o','ollama_llama3','groq_llama3_70b','anthropic_claude_3_5_sonnet','fireworks_v3p1_405b','bedrock_claude_3_5_sonnet']
+   models = ['ecnu_ecnu-plus','ecnu_ecnu-reasoner','ecnu_ecnu-reasoner-lite']
 
    for model_name in models:
        try:
