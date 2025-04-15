@@ -73,6 +73,12 @@ def get_llm(model: str):
                 model=model_name,
                 temperature=0,
                 )
+        elif "siliconflow" in model:
+            model_name, api_key = env_value.split(",")
+            llm= ChatOpenAI(
+            base_url="https://api.siliconflow.cn/v1",
+            api_key=api_key,
+            model=model_name)
         elif "azure" in model:
             model_name, api_endpoint, api_key, api_version = env_value.split(",")
             llm = AzureChatOpenAI(

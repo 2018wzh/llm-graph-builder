@@ -20,6 +20,8 @@ export const llms =
         'ecnu_ecnu-reasoner',
         'ecnu_ecnu-reasoner-lite',
         'ecnu_ecnu-plus',
+        'siliconflow_qwq-32b',
+        'siliconflow_deepseek-r1',
         'gemini_1.5_pro',
         'gemini_1.5_flash',
         'gemini_2.0_flash',
