@@ -177,3 +177,5 @@ files
 
 **/*.bat
 **/*.sh
+
+dataset/*
