@@ -178,4 +178,5 @@ startupfrontend.sh.vscode/*
 **/*.bat
 **/*.sh
 
-dataset/*
+tmp/*
+.vscode/*
