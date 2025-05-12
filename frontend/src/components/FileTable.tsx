@@ -582,7 +582,7 @@ const FileTable: ForwardRefRenderFunction<ChildRef, FileTableProps> = (props, re
             </IconButtonWithToolTip>
             <IconButtonWithToolTip
               placement='left'
-              text='copy'
+              text={copyRow ? 'Copied' : 'Copy'}
               size='large'
               label='Copy Row'
               disabled={info.getValue() === 'Uploading'}
@@ -729,8 +729,8 @@ const FileTable: ForwardRefRenderFunction<ChildRef, FileTableProps> = (props, re
                   name: item?.fileName,
                   size: item?.fileSize ?? 0,
                   type: item?.fileType?.includes('.')
-                    ? item?.fileType?.substring(1)?.toUpperCase() ?? 'None'
-                    : item?.fileType?.toUpperCase() ?? 'None',
+                    ? (item?.fileType?.substring(1)?.toUpperCase() ?? 'None')
+                    : (item?.fileType?.toUpperCase() ?? 'None'),
                   nodesCount: item?.nodeCount ?? 0,
                   processingTotalTime: item?.processingTime ?? 'None',
                   relationshipsCount: item?.relationshipCount ?? 0,

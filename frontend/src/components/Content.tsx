@@ -63,6 +63,12 @@ const Content: React.FC<ContentProps> = ({
   setOpenConnection,
   showDisconnectButton,
   connectionStatus,
+  combinedPatterns,
+  setCombinedPatterns,
+  combinedNodes,
+  setCombinedNodes,
+  combinedRels,
+  setCombinedRels,
 }) => {
   const { breakpoints } = tokens;
   const isTablet = useMediaQuery(`(min-width:${breakpoints.xs}) and (max-width: ${breakpoints.lg})`);
@@ -169,10 +175,10 @@ const Content: React.FC<ContentProps> = ({
               ? postProcessingTasks.filter((task) => task !== 'graph_schema_consolidation')
               : postProcessingTasks
             : hasSelections
-            ? postProcessingTasks.filter(
-                (task) => task !== 'graph_schema_consolidation' && task !== 'enable_communities'
-              )
-            : postProcessingTasks.filter((task) => task !== 'enable_communities');
+              ? postProcessingTasks.filter(
+                  (task) => task !== 'graph_schema_consolidation' && task !== 'enable_communities'
+                )
+              : postProcessingTasks.filter((task) => task !== 'enable_communities');
           if (payload.length) {
             const response = await postProcessing(payload);
             if (response.data.status === 'Success') {
@@ -237,7 +243,7 @@ const Content: React.FC<ContentProps> = ({
           ...curfile,
           model:
             curfile.status === 'New' || curfile.status === 'Ready to Reprocess'
-              ? selectedOption?.value ?? ''
+              ? (selectedOption?.value ?? '')
               : curfile.model,
         };
       });
@@ -596,6 +602,9 @@ const Content: React.FC<ContentProps> = ({
     localStorage.removeItem('selectedChunks_to_combine');
     setSelectedChunks_to_combine(chunksToCombine);
     localStorage.removeItem('instructions');
+    localStorage.removeItem('selectedNodeLabels');
+    localStorage.removeItem('selectedRelationshipLabels');
+    localStorage.removeItem('selectedPattern');
     setAdditionalInstructions('');
     setMessages([
       {
@@ -891,7 +900,16 @@ const Content: React.FC<ContentProps> = ({
         ></ChunkPopUp>
       )}
       {showEnhancementDialog && (
-        <GraphEnhancementDialog open={showEnhancementDialog} onClose={toggleEnhancementDialog}></GraphEnhancementDialog>
+        <GraphEnhancementDialog
+          open={showEnhancementDialog}
+          onClose={toggleEnhancementDialog}
+          combinedPatterns={combinedPatterns}
+          setCombinedPatterns={setCombinedPatterns}
+          combinedNodes={combinedNodes}
+          setCombinedNodes={setCombinedNodes}
+          combinedRels={combinedRels}
+          setCombinedRels={setCombinedRels}
+        ></GraphEnhancementDialog>
       )}
       <GraphViewModal
         inspectedName={inspectedName}
