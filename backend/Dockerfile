@@ -1,6 +1,7 @@
 FROM python:3.10-slim
 WORKDIR /code
 ENV PORT 8000
+ENV 
 EXPOSE 8000
 # Install dependencies and clean up in one layer
 RUN apt-get update && \
@@ -18,7 +19,7 @@ ENV LD_LIBRARY_PATH=/usr/lib/x86_64-linux-gnu:$LD_LIBRARY_PATH
 # Copy requirements file and install Python dependencies
 COPY requirements.txt /code/
 # --no-cache-dir --upgrade 
-RUN pip install -r requirements.txt 
+RUN pip install -r requirements.txt --extra-index-url https://download.pytorch.org/whl/cpu
 # Copy application code
 COPY . /code
 # Set command
