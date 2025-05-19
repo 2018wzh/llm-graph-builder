@@ -175,10 +175,10 @@ const Content: React.FC<ContentProps> = ({
               ? postProcessingTasks.filter((task) => task !== 'graph_schema_consolidation')
               : postProcessingTasks
             : hasSelections
-              ? postProcessingTasks.filter(
-                  (task) => task !== 'graph_schema_consolidation' && task !== 'enable_communities'
-                )
-              : postProcessingTasks.filter((task) => task !== 'enable_communities');
+            ? postProcessingTasks.filter(
+                (task) => task !== 'graph_schema_consolidation' && task !== 'enable_communities'
+              )
+            : postProcessingTasks.filter((task) => task !== 'enable_communities');
           if (payload.length) {
             const response = await postProcessing(payload);
             if (response.data.status === 'Success') {
@@ -243,7 +243,7 @@ const Content: React.FC<ContentProps> = ({
           ...curfile,
           model:
             curfile.status === 'New' || curfile.status === 'Ready to Reprocess'
-              ? (selectedOption?.value ?? '')
+              ? selectedOption?.value ?? ''
               : curfile.model,
         };
       });
@@ -929,7 +929,12 @@ const Content: React.FC<ContentProps> = ({
           <div className='connectionstatus__container'>
             <span className='h6 px-1'>Neo4j connection {isReadOnlyUser ? '(Read only Mode)' : ''}</span>
             <Typography variant='body-medium'>
-              <DatabaseStatusIcon isConnected={connectionStatus} isGdsActive={isGdsActive} uri={userCredentials?.uri} />
+              <DatabaseStatusIcon
+                isConnected={connectionStatus}
+                isGdsActive={isGdsActive}
+                uri={userCredentials?.uri}
+                database={userCredentials?.database}
+              />
               <div className='pt-1 flex! gap-1 items-center'>
                 <div>{!hasSelections ? <StatusIndicator type='danger' /> : <StatusIndicator type='success' />}</div>
                 <div>
