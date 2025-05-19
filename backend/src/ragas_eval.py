@@ -13,7 +13,7 @@ from ragas.llms import LangchainLLMWrapper
 from ragas.embeddings import LangchainEmbeddingsWrapper
 import nltk
 
-nltk.download('punkt')
+#nltk.download('punkt')
 load_dotenv()
 
 EMBEDDING_MODEL = os.getenv("RAGAS_EMBEDDING_MODEL")

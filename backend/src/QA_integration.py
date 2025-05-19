@@ -660,7 +660,8 @@ def QA_RAG(graph,model, question, document_names, session_id, mode, write_access
     messages = history.messages
 
     user_question = HumanMessage(content=question)
-    messages.append(user_question)
+    #messages.append(user_question)
+    messages = user_question
 
     if mode == CHAT_GRAPH_MODE:
         result = process_graph_response(model, graph, question, messages, history)
