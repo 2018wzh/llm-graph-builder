@@ -1,7 +1,6 @@
 FROM python:3.10-slim
 WORKDIR /code
 ENV PORT 8000
-ENV 
 EXPOSE 8000
 # Install dependencies and clean up in one layer
 RUN apt-get update && \
