@@ -51,7 +51,8 @@ class SessionChatHistory:
             cls.history_dict[session_id] = ChatMessageHistory()
         else:
             logging.info(f"Retrieved existing ChatMessageHistory Local for session ID: {session_id}")
-        return cls.history_dict[session_id]
+        #return cls.history_dict[session_id]
+        return ChatMessageHistory()
 
 class CustomCallback(BaseCallbackHandler):
 
